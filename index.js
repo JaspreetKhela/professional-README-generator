@@ -249,7 +249,7 @@ ${answersObject.license}
             function (err) {if (err) return console.log(err);});
 
         // Inform the user that the application has completed execution
-        console.log(`Thank you for using this application! Your ${answers.title}-README.md file has been created in the root directory's 'dist' folder.`);
+        console.log(`Thank you for using this application! Your ${answers.title}-README.md file has been created in the root directory folder.`);
     })
     .catch((error) => {
         if (error.isTtyError) {
