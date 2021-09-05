@@ -25,10 +25,9 @@
 To use this application, navigate to the root folder in the cloned repository's directory and simply type `node index.js` into the Command Line Interface.
 
 **Screenshots**:
+<img width="1440" alt="Screen Shot 2021-09-05 at 3 19 25 AM" src="https://user-images.githubusercontent.com/80941606/132118886-e727c395-a771-4b60-b415-2124a6e046c9.png">
 
-
-
-### Feautures
+### Features
 This application creates a README.md file after prompting a user for some project information.
 
 ### Testing
