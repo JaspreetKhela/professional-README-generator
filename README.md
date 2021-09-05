@@ -5,6 +5,8 @@
 
 **Deployment Link**: Please see [installation](#installation) instructions below.
 
+**Tutorial Video Link**: https://drive.google.com/file/d/1vmCyvRlCIr7js55i2UMOITIiQDCnRH4i/view
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
@@ -26,6 +28,8 @@ To use this application, navigate to the root folder in the cloned repository's 
 
 **Screenshots**:
 <img width="1440" alt="Screen Shot 2021-09-05 at 3 19 25 AM" src="https://user-images.githubusercontent.com/80941606/132118886-e727c395-a771-4b60-b415-2124a6e046c9.png">
+
+A sample 'Professional README.md Generator-README.md' file from this application is contained in the root directory of this repository.
 
 ### Features
 This application creates a README.md file after prompting a user for some project information.
