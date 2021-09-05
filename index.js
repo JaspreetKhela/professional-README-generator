@@ -1,3 +1,5 @@
+// Importing Node.js's fs capabilites
+const fs = require("fs");
 // Importing Inquirer npm package
 const inquirer = require('inquirer');
 
@@ -157,8 +159,43 @@ function promptUser() {
         // Save answers to an object to export
         answersObject = answers;
 
+        // Writing file to the dist directory
+        fs.writeFile(
+            `./dist/${answersObject.title}-README.md`, 
+`
+# ${answersObject.title}
+[![License: ${answersObject.license}](https://img.shields.io/badge/License-${answersObject.license}-yellow.svg)](https://choosealicense.com/licenses/)
+
+**Description**: ${answersObject.description}
+
+**Screenshots**:
+
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributions](#contributions)
+* [Testing](#testing)
+* [Questions](#questions)
+
+### Installation
+    ${answersObject.installation}
+### Usage
+    ${answersObject.usage}
+### License
+    ${answersObject.license}
+### Contributions
+    ${answersObject.contributors}
+### Testing
+    ${answersObject.testing}
+### Questions
+    Please [email](${answersObject.email}) me if you have any questions.
+    You may also contact me through my [GitHub](https://github.com/${answersObject.github}) profile. 
+`, 
+            function (err) {if (err) return console.log(err);});
+
         // Inform the user that the application has completed execution
-        console.log(`Thank you for using this application! Your ${answers.title}README.md file has been created in the root directory's 'dist' folder.`);
+        console.log(`Thank you for using this application! Your ${answers.title}-README.md file has been created in the root directory's 'dist' folder.`);
     })
     .catch((error) => {
         if (error.isTtyError) {
