@@ -1,3 +1,7 @@
+// Professional README.md Generator
+// Created By: Jaspreet Khela
+// Date Created: September 4, 2021
+
 // Importing Node.js's fs capabilites
 const fs = require("fs");
 // Importing Inquirer npm package
@@ -58,7 +62,7 @@ function promptUser() {
             }
         },
 
-        // Application usage instructions
+        // Application usage instructions prompt
         {
             type: "input",
             name: "usage",
@@ -74,21 +78,52 @@ function promptUser() {
             }
         },
 
-        // Project license information
+        // Application features prompt
         {
-            type: "list",
-            name: "license",
-            message: "Please choose a project license (Required): ",
-            choices: ["GNU AGPLv3", "GNU GPLv3", "GNU LGPLv3", "Mozilla Public License 2.0", "Apache License 2.0", "MIT License", "Boost Software License 1.0", "The Unlicense"],
-            validate: licenseInput => {
-                if (licenseInput) {
+            type: "input",
+            name: "features",
+            message: "Please describe your application's features (Required): ",
+            validate: featureInput => {
+                if (featureInput) {
                     return true;
                 }
                 else {
-                    console.log("This is a required field. Please choose a project license.")
+                    console.log("This is a required field. Please describe your application's features.")
                     return false;
                 }
             }
+        },
+
+        // Application testing information prompt
+        {
+            type: "input",
+            name: "testing",
+            message: "Please provide instructions for testing your application (Required): ",
+            validate: testingInput => {
+                if (testingInput) {
+                    return true;
+                }
+                else {
+                    console.log("This is a required field. Please provide instructions for testing your application.")
+                    return false;
+                }
+            }
+        },
+
+        // Application credits prompt
+        {
+            type: "input",
+            name: "credit",
+            message: "Please list any collaborators and their respective GitHub usernames or any resources that were referenced for this project if applicable: ",
+            // validate: testingInput => {
+            //     if (testingInput) {
+            //         return true;
+            //     }
+            //     else {
+            //         console.log("This is a required field. Please provide instructions for testing your application.")
+            //         return false;
+            //     }
+            // }
         },
 
         // Project contributors information prompt
@@ -102,22 +137,6 @@ function promptUser() {
                 }
                 else {
                     console.log("This is a required field. Please provide instructions for prospective contributors to your project.")
-                    return false;
-                }
-            }
-        },
-
-        // Application testing information
-        {
-            type: "input",
-            name: "testing",
-            message: "Please provide instructions for testing your application (Required): ",
-            validate: testingInput => {
-                if (testingInput) {
-                    return true;
-                }
-                else {
-                    console.log("This is a required field. Please provide instructions for testing your application.")
                     return false;
                 }
             }
@@ -153,6 +172,23 @@ function promptUser() {
                     return false;
                 }
             }
+        },
+
+        // Project license information
+        {
+            type: "list",
+            name: "license",
+            message: "Please choose a project license (Required): ",
+            choices: ["GNU AGPLv3", "GNU GPLv3", "GNU LGPLv3", "Mozilla Public License 2.0", "Apache License 2.0", "MIT License", "Boost Software License 1.0", "The Unlicense"],
+            validate: licenseInput => {
+                if (licenseInput) {
+                    return true;
+                }
+                else {
+                    console.log("This is a required field. Please choose a project license.")
+                    return false;
+                }
+            }
         }
     ])
     .then((answers) => {
@@ -161,36 +197,54 @@ function promptUser() {
 
         // Writing file to the dist directory
         fs.writeFile(
-            `./dist/${answersObject.title}-README.md`, 
+            `./${answersObject.title}-README.md`, 
 `
 # ${answersObject.title}
 [![License: ${answersObject.license}](https://img.shields.io/badge/License-${answersObject.license}-yellow.svg)](https://choosealicense.com/licenses/)
 
 **Description**: ${answersObject.description}
 
-**Screenshots**:
+**Deployment Link**: N/A
 
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
-* [Contributions](#contributions)
+* [Features](#features)
 * [Testing](#testing)
+* [Credit](#credit)
+* [Contributions](#contributions)
 * [Questions](#questions)
+* [Badges](#badges)
+* [License](#license)
 
 ### Installation
-    ${answersObject.installation}
+${answersObject.installation}
+
 ### Usage
-    ${answersObject.usage}
-### License
-    ${answersObject.license}
-### Contributions
-    ${answersObject.contributors}
+${answersObject.usage}
+
+**Screenshots**:
+
+### Features
+${answersObject.features}
+
 ### Testing
-    ${answersObject.testing}
+${answersObject.testing}
+
+### Credit
+${answersObject.credit}
+
+### Contributions
+${answersObject.contributors}
+
 ### Questions
-    Please [email](${answersObject.email}) me if you have any questions.
-    You may also contact me through my [GitHub](https://github.com/${answersObject.github}) profile. 
+Please [email](${answersObject.email}) me if you have any questions.
+You may also contact me through my [GitHub](https://github.com/${answersObject.github}) profile. 
+
+### Badges
+
+### License
+${answersObject.license}
 `, 
             function (err) {if (err) return console.log(err);});
 
