@@ -21,7 +21,7 @@
 ### Installation
 1. Download [git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 2. Clone this repository by typing `git clone https://github.com/JaspreetKhela/professional-README-generator.git` in your desired directory using the Command Line Interface.
-3. Download npm dependencies by typing `npm install` in your Command Line Interface.
+3. Download npm dependencies by typing `npm install` in your Command Line Interface. This application uses the inquirer npm package.
 
 ### Usage
 To use this application, navigate to the root folder in the cloned repository's directory and simply type `node index.js` into the Command Line Interface.
